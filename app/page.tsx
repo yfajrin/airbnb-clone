@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Http2ServerRequest } from "http2";
 import Container from "./components/container.component";
 import EmptyState from "./components/empty-state";
