@@ -1,15 +1,18 @@
 import { Http2ServerRequest } from "http2";
 import Container from "./components/container.component";
 import EmptyState from "./components/empty-state";
-import getListings from "./actions/getListings";
+import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/listings/listing-card";
 import getCurrentUser from "./actions/getCurrentUser";
 
+interface HomeProps {
+  searchParams: IListingsParams
+}
 
-export default async function Home() {
-  const listings = await getListings()
+const Home = async ({searchParams}: HomeProps) => {
+  const listings = await getListings(searchParams)
   const currentUser = await getCurrentUser();
-  
+
   if(listings.length === 0) {
     return(
       <EmptyState showReset />
@@ -35,3 +38,5 @@ export default async function Home() {
     </Container>
   )
 }
+
+export default Home;
