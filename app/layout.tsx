@@ -8,6 +8,7 @@ import LoginModal from './components/modals/login-modal';
 import getCurrentUser from './actions/getCurrentUser';
 import RentModal from './components/modals/rent-modal';
 import SearchModal from './components/modals/search-modal';
+import Footer from './components/footer';
 
 export const metadata = {
   title: 'AirBnb',
@@ -37,6 +38,7 @@ export default async function RootLayout({
         <div className='pb-20 pt-28'>
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   )
